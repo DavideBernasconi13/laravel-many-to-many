@@ -27,13 +27,16 @@
         <div class="col-md-8">
             <p class="alert alert-dark">{!!$project->description!!}</p>
         </div>
-    </div>
-    @if($project->tags)
-        @foreach ($project->tags as $tag)
-            <span class="badge badge-info">{{$tag->name}}</span>
-        @endforeach
+        <div>
+            @if($project->tags)
+                @foreach ($project->tags as $tag)
+                    <span class="badge rounded-pill bg-info text-light">{{$tag->name}}</span>
+                @endforeach
+            @endif
+        </div>
 
-    @endif
+    </div>
+
 
 
 </div>
