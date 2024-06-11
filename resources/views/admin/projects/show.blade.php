@@ -30,7 +30,7 @@
         <div>
             @if($project->tags)
                 @foreach ($project->tags as $tag)
-                    <span class="badge rounded-pill bg-info text-light">{{$tag->name}}</span>
+                    <span class="badge rounded-pill bg-info text-light mb-4">{{$tag->name}}</span>
                 @endforeach
             @endif
         </div>

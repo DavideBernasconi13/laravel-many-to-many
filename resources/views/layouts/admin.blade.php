@@ -23,8 +23,8 @@
     <div id="admin">
         @include('partials.sidebar')
         <div id="wrapper">
-        @include('partials.header')
-            <main class="">
+            @include('partials.header')
+            <main class="overflow-auto">
                 @yield('content')
             </main>
         </div>

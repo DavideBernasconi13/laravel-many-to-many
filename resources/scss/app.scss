@@ -17,12 +17,14 @@ h1 {
 /* ! Admin template */
 /* -------------------------------------------------------------------------------- */
 #admin {
-    height: 100vh;
     display: flex;
+    height: 100vh;
 
     #wrapper {
         background-color: #eee;
         flex-grow: 1;
+        overflow-y: auto;
+
 
         header {
             min-height: 70px;
@@ -32,6 +34,7 @@ h1 {
             width: 1.25rem;
             height: 1.25rem;
         }
+
     }
 
     #sidebar {
