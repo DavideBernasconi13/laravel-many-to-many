@@ -28,6 +28,12 @@
             <p class="alert alert-dark">{!!$project->description!!}</p>
         </div>
     </div>
+    @if($project->tags)
+        @foreach ($project->tags as $tag)
+            <span class="badge badge-info">{{$tag->name}}</span>
+        @endforeach
+
+    @endif
 
 
 </div>

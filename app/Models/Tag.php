@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-
+use App\Models\Project;
 
 class Tag extends Model
 {
@@ -22,5 +22,9 @@ class Tag extends Model
             $count++;
         }
         return $slug;
+    }
+    public function project()
+    {
+        return $this->belongsToMany(Project::class);
     }
 }

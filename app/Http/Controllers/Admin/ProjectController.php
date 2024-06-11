@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Requests\Auth;
 use Illuminate\Support\Facades\Storage;
+
 
 class ProjectController extends Controller
 {
@@ -28,8 +30,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('admin.projects.create', compact('categories'));
+        return view('admin.projects.create', compact('categories', 'tags'));
 
     }
 
@@ -59,6 +62,10 @@ class ProjectController extends Controller
         }
 
         $newProject = Project::create($form_data);
+        if ($request->has('tags')) {
+            $newProject->tags()->attach($request->tags);
+        }
+
         return redirect()->route('admin.projects.show', $newProject->slug);
 
     }
