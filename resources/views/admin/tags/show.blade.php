@@ -1,21 +1,21 @@
 @extends('layouts.admin')
 
-@section('title', 'Show Category: ' . $category->name)
+@section('title', 'Show Tag: ' . $tag->name)
 
 @section('content')
-<section class="container">
+< class="container">
     <div class="d-flex justify-content-between align-items-center py-5">
-        <h2>{{$category->name}}</h2>
+        <h2>{{$tag->name}}</h2>
         <div>
-            <a href="{{route('admin.categories.edit', $category->slug)}}" class="btn btn-secondary">Edit</a>
-            <form action="{{route('admin.categories.destroy', $category->slug)}}" method="POST" class="d-inline-block">
+            <a href="{{route('admin.tags.edit', $tag->slug)}}" class="btn btn-secondary">Edit</a>
+            <form action="{{route('admin.tags.destroy', $tag->slug)}}" method="POST" class="d-inline-block">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="delete-button btn btn-danger"  data-item-title="{{ $category->name }}">
-                 Delete Category</i>
+                <button type="submit" class="delete-button btn btn-danger" data-item-title="{{ $tag->name }}">
+                    Delete tag</i>
                 </button>
 
-              </form>
+            </form>
         </div>
     </div>
     <table class="table table-striped">
@@ -30,7 +30,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($category->projects as $project)
+            @foreach ($tag->projects as $project)
                 <tr>
                     <td>{{$project->id}}</td>
                     <td>{{$project->title}}</td>
@@ -60,9 +60,10 @@
         </tbody>
     </table>
 
-</section>
 
-@include('partials.modal-delete')
+    </section>
+
+    @include('partials.modal-delete')
 
 
-@endsection
+    @endsection

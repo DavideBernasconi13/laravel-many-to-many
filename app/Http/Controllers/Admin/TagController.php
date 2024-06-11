@@ -5,6 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Project;
+use App\Models\Category;
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
+use App\Http\Requests\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class TagController extends Controller
 {
@@ -22,7 +28,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tags.create');
     }
 
     /**
@@ -38,7 +44,7 @@ class TagController extends Controller
      */
     public function show(Tag $tag)
     {
-        //
+        return view('admin.tags.show', compact('tag'));
     }
 
     /**
