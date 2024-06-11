@@ -24,7 +24,7 @@
         @include('partials.sidebar')
         <div id="wrapper">
             @include('partials.header')
-            <main class="overflow-auto">
+            <main>
                 @yield('content')
             </main>
         </div>
