@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
-@section('title', 'Create Category')
+@section('title', 'Create Tag')
 
 @section('content')
 <section>
     <div class="container">
-        <h2>Create a new category</h2>
-        <form action="{{ route('admin.categories.store') }}" method="POST">
+        <h2>Create a new tag</h2>
+        <form action="{{ route('admin.tags.store') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>

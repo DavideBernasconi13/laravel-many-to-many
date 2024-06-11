@@ -35,9 +35,16 @@ class TagController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+        {
+            $request->validate([
+                'name' => 'required|max:255',
+            ]);
+            $form_data = $request->all();
+            $form_data['slug'] = Tag::generateSlug($form_data['name']);
+            $newTag = Tag::create($form_data);
+            return redirect()->route('admin.tags.show', $newTag->slug);
+        }
+
 
     /**
      * Display the specified resource.
