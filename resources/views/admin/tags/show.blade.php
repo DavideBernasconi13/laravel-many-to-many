@@ -3,7 +3,7 @@
 @section('title', 'Show Tag: ' . $tag->name)
 
 @section('content')
-< class="container">
+<section class="container">
     <div class="d-flex justify-content-between align-items-center py-5">
         <h2>{{$tag->name}}</h2>
         <div>
@@ -30,6 +30,7 @@
             </tr>
         </thead>
         <tbody>
+
             @foreach ($tag->projects as $project)
                 <tr>
                     <td>{{$project->id}}</td>
@@ -59,11 +60,9 @@
             @endforeach
         </tbody>
     </table>
+</section>
+
+@include('partials.modal-delete')
 
 
-    </section>
-
-    @include('partials.modal-delete')
-
-
-    @endsection
+@endsection

@@ -12,7 +12,8 @@
             <a class="nav-link text-white active" href="{{route('admin.categories.index')}}">Category</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" href="#">Link</a>
+            <a class="nav-link text-white" href="{{route('admin.tags.index')}}"><i class="fa fa-tag"
+                    aria-hidden="true"></i> Tags</a>
         </li>
 
     </ul>

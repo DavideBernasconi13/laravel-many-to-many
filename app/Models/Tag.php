@@ -23,7 +23,7 @@ class Tag extends Model
         }
         return $slug;
     }
-    public function project()
+    public function projects()
     {
         return $this->belongsToMany(Project::class);
     }
