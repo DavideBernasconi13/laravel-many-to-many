@@ -54,15 +54,14 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                </div>
+            </div>
 
-                <!-- Tag -->
-                <div class="form-group mb-3">
+            <!-- Tag -->
+            <div class="form-group mb-3">
                 <p>Select Tag:</p>
                 @foreach ($tags as $tag)
                     <div>
-                        <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="form-check-input"
-                            {{ in_array($tag->id, old('tags', [])) ? 'checked' : '' }}>
+                        <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="form-check-input" {{ in_array($tag->id, old('tags', [])) ? 'checked' : '' }}>
                         <label for="" class="form-check-label">{{ $tag->name }}</label>
                     </div>
                 @endforeach
@@ -70,14 +69,15 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+    </div>
 
-            </div>
-            <div class="mb-3">
-                <button type="submit" class="btn btn-danger">Create</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-danger">Create</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
 
-            </div>
-        </form>
+    </div>
+    </form>
     </div>
 
 

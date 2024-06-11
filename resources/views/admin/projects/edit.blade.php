@@ -61,7 +61,8 @@
                         <option value="">Select category</option>
                         @foreach($categories as $category){
                             <option value="{{$category->id}}" {{ $category->id == $project->category_id ? 'selected' : '' }}>
-                                {{$category->name}}</option>
+                                {{$category->name}}
+                            </option>
                             }
                         @endforeach
                     </select>
@@ -70,6 +71,22 @@
                     @enderror
                 </div>
             </div>
+
+            <!-- Tag -->
+            <div class="form-group mb-3">
+                <p>Select Tag:</p>
+                @foreach ($tags as $tag)
+                    <div>
+                        <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="form-check-input"
+                            {{ $project->tags->contains($tag->id) ? 'checked' : '' }}>
+                        <label for="" class="form-check-label">{{ $tag->name }}</label>
+                    </div>
+                @endforeach
+                @error('tags')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            
             <div class="mb-3">
                 <button type="submit" class="btn btn-danger">Save</button>
                 <button type="reset" class="btn btn-secondary">Reset</button>

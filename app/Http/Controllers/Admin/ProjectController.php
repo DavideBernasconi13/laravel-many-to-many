@@ -83,8 +83,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('admin.projects.edit', compact('project', 'categories'));
+        return view('admin.projects.edit', compact('project', 'categories', 'tags'));
 
     }
     /**
@@ -107,6 +108,11 @@ class ProjectController extends Controller
         }
         // DB::enableQueryLog();
         $project->update($form_data);
+        if ($request->has('tags')) {
+            $project->tags()->sync($request->tags);
+        } else {
+            $project->tags()->sync([]);
+        }
         // $query = DB::getQueryLog();
         // dd($query);
         return redirect()->route('admin.projects.show', $project->slug);
